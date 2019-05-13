@@ -1,0 +1,47 @@
+<div class="login-wrapper">
+	<form clrForm clrLayout="vertical" class="login" [formGroup]="loginForm">
+		<section class="title">
+			<h1>login</h1>
+			<h5 class="hint">use your email and password to login to your account</h5>
+		</section>
+		<div class="login-group">
+			<clr-input-container>
+				<label for="email">email</label>
+				<input
+					type="email"
+					name="email"
+					spellcheck="false"
+					clrInput
+					placeholder="jason@atanos.ga"
+					formControlName="email"
+				/>
+				<clr-control-error>email is required and must be valid</clr-control-error>
+			</clr-input-container>
+			<clr-password-container>
+				<label for="password">password</label>
+				<input
+					type="password"
+					name="password"
+					spellcheck="false"
+					clrPassword
+					placeholder="myPassword"
+					formControlName="password"
+				/>
+				<clr-control-error>password is required</clr-control-error>
+			</clr-password-container>
+			<div class="error active" [hidden]="ok">
+				{{ errorMessage }}
+			</div>
+			<button
+				class="btn btn-primary"
+				type="submit"
+				(click)="loginFormSubmit()"
+				[disabled]="!loginForm.valid"
+				[clrLoading]="loginBtnState"
+			>
+				LOGIN
+			</button>
+			<a href="/user/signup" routerLink="/user/signup" class="signup">sign up</a>
+		</div>
+	</form>
+</div>

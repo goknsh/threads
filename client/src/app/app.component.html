@@ -1,0 +1,83 @@
+<clr-main-container>
+	<clr-header class="header">
+		<div class="branding" *ngIf="!userExists">
+			<a href="/" routerLink="/" class="nav-link">
+				<span class="title">threads</span>
+			</a>
+		</div>
+		<div class="branding" *ngIf="userExists">
+			<a href="/dashboard/overview" routerLink="/dashboard/overview" class="nav-link">
+				<span class="title">threads beta</span>
+			</a>
+		</div>
+		<div class="header-nav" [clr-nav-level]="1">
+			<a class="nav-link" href="/docs" routerLink="/docs" routerLinkActive="active"
+				><span class="nav-text">docs</span></a
+			>
+			<a class="nav-link" href="/demo" routerLink="/demo" routerLinkActive="active"
+				><span class="nav-text">demo</span></a
+			>
+			<a class="nav-link" href="https://github.com/goknsh/threads"
+				><span class="nav-text">github</span></a
+			>
+		</div>
+		<div class="header-actions" *ngIf="!userExists">
+			<a
+				class="nav-link"
+				href="/user/login"
+				routerLink="/user/login"
+				routerLinkActive="active"
+				><span class="nav-text">login</span></a
+			>
+			<a
+				class="nav-link"
+				href="/user/signup"
+				routerLink="/user/signup"
+				routerLinkActive="active"
+				><span class="nav-text">signup</span></a
+			>
+		</div>
+		<div class="header-actions" *ngIf="userExists">
+			<clr-dropdown>
+				<button class="nav-text" clrDropdownTrigger>
+					<img
+						style="height:30px;width:30px;border-radius:100%"
+						src="{{ environment.apiServer }}/user/images/profile-pictures/{{
+							user.profile_picture
+						}}"
+						alt=""
+					/>{{ user.name }}<clr-icon shape="caret down"></clr-icon>
+				</button>
+				<clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+					<a href="/dashboard/overview" routerLink="/dashboard/overview" clrDropdownItem
+						>dashboard</a
+					>
+					<a href="/dashboard/profile" routerLink="/dashboard/profile" clrDropdownItem
+						>profile</a
+					>
+					<a href="/dashboard/domains" routerLink="/dashboard/domains" clrDropdownItem
+						>domains</a
+					>
+					<a href="/dashboard/comments" routerLink="/dashboard/comments" clrDropdownItem
+						>comments</a
+					>
+					<a href="/dashboard/settings" routerLink="/dashboard/settings" clrDropdownItem
+						>settings</a
+					>
+					<div class="dropdown-divider"></div>
+					<a href="/user/login/end" routerLink="/user/login/end" clrDropdownItem
+						>log out</a
+					>
+					<button type="button" clrDropdownItem disabled>
+						{{ user.email }}
+					</button>
+				</clr-dropdown-menu>
+			</clr-dropdown>
+		</div>
+	</clr-header>
+	<div class="content-container">
+		<div class="content-area padding-{{ routerData.styles.padding }}">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</clr-main-container>

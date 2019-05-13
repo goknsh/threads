@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Threads Comments</title>
+
+		<link rel="stylesheet" href="https://unpkg.com/semantic-ui/dist/semantic.css" />
+		<script src="./threads.js"></script>
+	</head>
+	<body>
+		<div class="ui threaded comments">
+			<h2 class="ui dividing header">Comments</h2>
+			<div class="comment">
+				<a class="avatar">
+					<img src="https://api.adorable.io/avatars/285/matt" />
+				</a>
+				<div class="content">
+					<a class="author">Matt</a>
+					<div class="metadata">
+						<span class="date">Today at 5:42PM</span>
+					</div>
+					<div class="text">
+						How artistic!
+					</div>
+					<div class="actions">
+						<a class="reply" onclick="threads.openReplyForm(this)">Reply</a>
+					</div>
+				</div>
+			</div>
+			<div class="comment">
+				<a class="avatar">
+					<img src="https://api.adorable.io/avatars/285/elliot" />
+				</a>
+				<div class="content">
+					<a class="author">Elliot Fu</a>
+					<div class="metadata">
+						<span class="date">Yesterday at 12:30AM</span>
+					</div>
+					<div class="text">
+						<p>
+							This has been very useful for my research. Thanks as well!
+						</p>
+					</div>
+					<div class="actions">
+						<a class="reply" onclick="threads.openReplyForm(this)">Reply</a>
+					</div>
+				</div>
+				<div class="comments">
+					<div class="comment">
+						<a class="avatar">
+							<img src="https://api.adorable.io/avatars/285/jenny" />
+						</a>
+						<div class="content">
+							<a class="author">Jenny Hess</a>
+							<div class="metadata">
+								<span class="date">Just now</span>
+							</div>
+							<div class="text">
+								Elliot you are always so right :)
+							</div>
+							<div class="actions">
+								<a class="reply" onclick="threads.openReplyForm(this)">Reply</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="comment">
+				<a class="avatar">
+					<img src="https://api.adorable.io/avatars/64/joe" />
+				</a>
+				<div class="content">
+					<a class="author">Joe Henderson</a>
+					<div class="metadata">
+						<span class="date">5 days ago</span>
+					</div>
+					<div class="text">
+						Dude, this is awesome. Thanks so much
+					</div>
+					<div class="actions">
+						<a class="reply" onclick="threads.openReplyForm(this)">Reply</a>
+					</div>
+				</div>
+			</div>
+			<form class="ui reply form">
+				<div class="field">
+					<textarea></textarea>
+				</div>
+				<div class="ui blue labeled submit icon button"><i class="icon edit"></i> Add Comment</div>
+			</form>
+		</div>
+	</body>
+</html>

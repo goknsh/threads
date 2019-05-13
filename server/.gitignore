@@ -1,0 +1,5 @@
+/api/v2/vendor/
+/api/v1/.env.json
+/api/v2/.env.json
+/api/v2/user/images/
+/api/v2/testing/
